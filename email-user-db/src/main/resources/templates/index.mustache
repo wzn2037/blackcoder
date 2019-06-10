@@ -1,0 +1,74 @@
+{{ > common/header }}
+<div class="main">
+    <div class="index-banner banner">
+        <div class="container">
+            <ul class="slider">
+                {{#banner}}
+                    <li><img src="{{sourceKey}}"></li>
+                {{/banner}}
+            </ul>
+        </div>
+    </div>
+    <div class="main-wrapper container clearfix">
+        <div class="section clearfix">
+            <h3 class="section-title">
+                <a href="#">热门展览</a>
+            </h3>
+            {{#expo}}
+                <div class="card" onclick="window.open('/exhibition/detail?id={{id}}', '_blank').location;">
+                    <div class="card-content">
+                        {{#expoImg}}<img src="{{expoImg}}">{{/expoImg}}
+                        {{^expoImg}}<div><span>暂时没有图片</span></div>{{/expoImg}}
+                    </div>
+                    <div class="card-footer">
+                        <a href="#">{{expoName}}</a>
+                        <div class="card-extra">
+                            <span class="pull-left">{{#city}}{{city}}{{/city}}</span>
+                            <span class="pull-right">{{startTime}}</span>
+                        </div>
+                    </div>
+                </div>
+            {{/expo}}
+        </div>
+        <div class="section">
+            <h3 class="section-title">
+                <a href="#">热门活动</a>
+            </h3>
+            {{#activity}}
+                <div class="card" onclick="window.open('/activity/detail/{{id}}', '_blank').location;">
+                    <div class="card-content">
+                        <img src="{{finalPath}}">
+                    </div>
+                    <div class="card-footer">
+                        <a>{{activityName}}</a>
+                        <div class="card-extra">
+                            <span class="pull-left">{{city}}</span>
+                            <span class="pull-right">{{startTime}}</span>
+                        </div>
+                    </div>
+                </div>
+            {{/activity}}
+        </div>
+        <div class="section small">
+            <h3 class="section-title">
+                <a href="#">最新需求</a>
+            </h3>
+            <div class="section-content">
+                <ul class="req-list">
+                    {{#request}}
+                    <li>
+                        <div class="req-title">
+                            <a href="#">{{title}}</a>
+                        </div>
+                        <div class="req-extra">
+                            <span class="pull-left">{{serviceTypeName}}</span>
+                            <span class="pull-right">{{bidEndTime}}截止</span>
+                        </div>
+                    </li>
+                    {{/request}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{{ > common/footer }}
